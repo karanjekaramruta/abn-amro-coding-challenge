@@ -1,0 +1,127 @@
+$color: #222;
+$border-color: black;
+$background-color: #eee;
+$background-color-div: white;
+$border-weight: 1px;
+$margin: 50px;
+$node-border-color:lightseagreen;
+
+body {
+    display:flex;
+    flex-wrap:wrap;
+    font-family: Arial;
+    justify-content: center;
+    background-color: $background-color;
+  }
+  
+  .tree {
+    color: $color;
+    background-color:$background-color;
+    padding: 0;
+    
+    &:not(:empty):before, &:not(:empty):after,
+    ul:not(:empty):before, ul:not(:empty):after,
+    li:not(:empty):before, li:not(:empty):after {
+      display:block;
+      position:absolute;
+      content:"";
+    }
+    
+    ul, li {
+      position: relative;
+      margin:0;
+      padding:0;
+    }
+    
+    li {
+      list-style:none;
+    }
+    
+    li>div {
+      background-color:$background-color-div;
+      color:$color;
+      padding:40px 70px;
+      display:inline-block;
+      border-radius: 5px 15px;
+      
+      &.active{
+        border: 1px solid black;
+      }
+    }
+    
+    &.horizontal {
+      li {
+        display: flex;
+        align-items: center;
+        margin-left: $margin * 2;
+        
+        div {
+          margin:$margin/2 0;
+        }
+        
+        &:before {
+          border-left: $border-weight solid $border-color;
+          height: 100%;
+          width:0;
+          top:0;
+          left: -$margin;
+        }
+  
+        &:first-child:before {
+          height:50%;
+          top:50%;
+        }
+  
+        &:last-child:before {
+          height:50%;
+          bottom:50%;
+          top:auto;
+        }
+        
+        &:after, ul:after {
+          border-top: $border-weight*2 solid $border-color;
+          height: 0;
+          width: $margin;
+          top: 50%;
+          left: -$margin;
+        }
+        
+        &:only-child:before {
+          content:none;
+        }
+        
+        ul:after {
+          left: 0;
+        }
+      }
+      
+      &>li {
+        &:only-child {
+          margin-left:0;
+        }
+  
+        &:only-child:before, &:only-child:after {
+          content:none;
+        }
+      }
+    }
+  }
+
+  .node{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 40px;
+    background-color: $background-color-div;
+    text-align: left;
+    display: none;
+
+    button{
+      position: fixed;
+      top: 0;
+      left: 230px;
+      padding: 4px;
+      background-color: $node-border-color;
+    }
+
+  }

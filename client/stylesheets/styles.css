@@ -1,0 +1,124 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: Arial;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #eee;
+}
+
+.tree {
+  color: #222;
+  background-color: #eee;
+  padding: 0;
+}
+
+.tree:not(:empty):before, .tree:not(:empty):after,
+.tree ul:not(:empty):before, .tree ul:not(:empty):after,
+.tree li:not(:empty):before, .tree li:not(:empty):after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+
+.tree ul, .tree li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.tree li {
+  list-style: none;
+}
+
+.tree li > div {
+  background-color: white;
+  color: #222;
+  padding: 40px 70px;
+  display: inline-block;
+  border-radius: 5px 15px;
+}
+
+.tree li > div.active {
+  border: 1px solid black;
+}
+
+.tree.horizontal li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 100px;
+}
+
+.tree.horizontal li div {
+  margin: 25px 0;
+}
+
+.tree.horizontal li:before {
+  border-left: 1px solid black;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: -50px;
+}
+
+.tree.horizontal li:first-child:before {
+  height: 50%;
+  top: 50%;
+}
+
+.tree.horizontal li:last-child:before {
+  height: 50%;
+  bottom: 50%;
+  top: auto;
+}
+
+.tree.horizontal li:after, .tree.horizontal li ul:after {
+  border-top: 2px solid black;
+  height: 0;
+  width: 50px;
+  top: 50%;
+  left: -50px;
+}
+
+.tree.horizontal li:only-child:before {
+  content: none;
+}
+
+.tree.horizontal li ul:after {
+  left: 0;
+}
+
+.tree.horizontal > li:only-child {
+  margin-left: 0;
+}
+
+.tree.horizontal > li:only-child:before, .tree.horizontal > li:only-child:after {
+  content: none;
+}
+
+.node {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 40px;
+  background-color: white;
+  text-align: left;
+  display: none;
+}
+
+.node button {
+  position: fixed;
+  top: 0;
+  left: 230px;
+  padding: 4px;
+  background-color: lightseagreen;
+}
+/*# sourceMappingURL=styles.css.map */
