@@ -1,6 +1,6 @@
 # Coding Challenge - Full Stack Developer
-- data graph using NodeJS, SASS, Express, HTML and JavaScript
-- JEST Unit testing framework used to test the routes
+- data graph using NodeJS, SASS, MongoDB, Express, HTML and JavaScript.
+- JEST Unit testing framework used to test the GET route.
 
 # Usage
 - `git clone https://github.com/karanjekaramruta/abn-amro-coding-challenge.git`
