@@ -1,18 +1,19 @@
-var express = require('express');
+const express = require('express');
+
 const app = express();
-const User = require("../models/user");
+const User = require('../models/user');
 
-
-/* GET all data from users db. */
-app.get('/data', function(req, res, next) {
-  
+/* GET data from database */
+app.get('/data', (req, res) => {
   User.find({}, 'data -_id')
-      .then((response)=>{
-        res.json(response[0]._doc.data)
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+    .then((response) => {
+      // eslint-disable-next-line no-underscore-dangle
+      res.json(response[0]._doc.data);
+    })
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    });
 });
 
 module.exports = app;
